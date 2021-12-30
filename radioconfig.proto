@@ -581,6 +581,14 @@ message RadioConfig {
      * 
      */
     uint32 hop_limit = 154;
+
+    /*
+     * Default false. When this is true, the PSK will never be sent outside of the device. (Not to the apps and not to python.)
+     * When this is set to false, the PSK is set back to the default channel PSK. (And then the PSK can be read out again.)
+     * Note this will not affect setting the PSK, which will always be allowed.
+     * This is intended for unsupervised mesh nodes where you want to secure the key just a little bit more.
+     */
+    bool is_psk_secured = 155;
   }
 
   UserPreferences preferences = 1;
